@@ -5,8 +5,10 @@ import Repos from "../components/Repos";
 import Search from "../components/Search";
 import SortRepos from "../components/SortRepos";
 import Spinner from "../components/Spinner";
+import { useAuthContext } from "../context/AuthContext";
 
 const HomePage = () => {
+  const { authUser } = useAuthContext();
   // to fetch data of the userprofile
   const [userProfile, setUserProfile] = useState(null);
   // to fetch the data of repos of that user
@@ -19,12 +21,10 @@ const HomePage = () => {
   // handle the getUserProfileAndRepos function
   // uses the callback function to get not be in of infinite loop
   const getUserProfileAndRepos = useCallback(
-    async (username = "VelpuriVineela") => {
+    async (username = authUser.username) => {
       setLoading(true);
       try {
-        const res = await fetch(
-          `http://localhost:5000/api/users/profile/${username}`
-        );
+        const res = await fetch(`/api/users/profile/${username}`);
         const { repos, userProfile } = await res.json();
 
         repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending, recent first
