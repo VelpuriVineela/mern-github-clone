@@ -21,7 +21,7 @@ const HomePage = () => {
   // handle the getUserProfileAndRepos function
   // uses the callback function to get not be in of infinite loop
   const getUserProfileAndRepos = useCallback(
-    async (username = authUser.username) => {
+    async (username = "" ? "VelpuriVineela" : authUser.username) => {
       setLoading(true);
       try {
         const res = await fetch(`/api/users/profile/${username}`);
