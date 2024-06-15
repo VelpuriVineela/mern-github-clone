@@ -20,32 +20,30 @@ const HomePage = () => {
 
   // handle the getUserProfileAndRepos function
   // uses the callback function to get not be in of infinite loop
-  const getUserProfileAndRepos = useCallback(
-    async (username = "VelpuriVineela") => {
-      console.log(username);
-      setLoading(true);
-      try {
-        const res = await fetch(`/api/users/profile/${username}`);
-        const { repos, userProfile } = await res.json();
+  const getUserProfileAndRepos = useCallback(async (username) => {
+    console.log(username);
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/users/profile/${username}`);
+      const { repos, userProfile } = await res.json();
 
-        repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending, recent first
-        setRepos(repos);
-        setUserProfile(userProfile);
+      repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); //descending, recent first
+      setRepos(repos);
+      setUserProfile(userProfile);
 
-        return { userProfile, repos };
-      } catch (error) {
-        toast.error(error.message);
-      } finally {
-        setLoading(false);
-      }
-    },
-    []
-  );
+      return { userProfile, repos };
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   // to fetch the data
   useEffect(() => {
-    getUserProfileAndRepos();
-  }, [getUserProfileAndRepos]);
+    const username = authUser ? authUser.username : "VelpuriVineela";
+    getUserProfileAndRepos(username);
+  }, [authUser, getUserProfileAndRepos]);
 
   // handle the searching functionality by the username
   const onSearch = async (e, username) => {
