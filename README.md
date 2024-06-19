@@ -2,8 +2,9 @@
 
 ## Project Description
 
+![Screenshot 2024-06-19 153930](https://github.com/VelpuriVineela/mern-github-clone/assets/134683293/53b0787c-29ff-4c5f-a095-1801d626e517)
+
 MERN GitHub Clone is a web application built using the MERN stack (MongoDB, Express, React, Node.js). The application allows users to authenticate via GitHub, explore repositories, and manage their liked repositories. The backend handles API requests and connects to MongoDB, while the frontend offers a user-friendly interface built with React.
-- ![Screenshot 2024-06-19 153930](https://github.com/VelpuriVineela/mern-github-clone/assets/134683293/53b0787c-29ff-4c5f-a095-1801d626e517)
 
 ## Table of Contents
 - [Installation](#installation)
@@ -11,7 +12,7 @@ MERN GitHub Clone is a web application built using the MERN stack (MongoDB, Expr
 - [Features](#features)
 - [Folder Structure](#folder-structure)
 - [Contributing](#contributing)
-- [License](#license)
+- [Hosted Link](#hosted-link)
 - [Contact](#contact)
 
 ## Installation
@@ -151,8 +152,8 @@ frontend/
 ## Contributing
 Contributions are welcome! Please fork this repository and submit a pull request for any changes.
 
-## License
-This project is licensed under the MIT License.
+## Hosted Link
+https://mern-github-clone-aw6f.onrender.com
 
 ## Contact
 For any inquiries or support, please contact [Velpuri Vineela](https://github.com/VelpuriVineela).
